@@ -3,10 +3,9 @@
   "version": "1.0.0",
   "description": "Framework for protractor",
   "scripts": {
-
-    
     "test": "protractor JSFiles/configuration.js",
     "pretest": "tsc",
+    "cucumbertest": "protractor JSFiles/cucumberconfig.js",
     "protractor": "./node_modules/protractor/built/cli.js",
     "webdriver-update": "./node_modules/.bin/webdriver-manager update"
   },
@@ -21,12 +20,19 @@
   },
   "homepage": "https://github.com/x-max/ProtractorTypeScriptCucumber#readme",
   "dependencies": {
+    "@types/cucumber": "^4.0.7",
     "@types/jasmine": "^3.4.4",
     "@types/jasminewd2": "^2.0.8",
     "@types/node": "^12.12.3",
+    "chai": "^4.2.0",
+    "chai-as-promised": "7.1.1",
+    "cucumber": "^5.1.0",
     "jasmine": "^3.5.0",
     "protractor": "^5.4.2",
     "ts-node": "^8.4.1",
     "typescript": "^3.2.2"
+  },
+  "devDependencies": {
+    "protractor-cucumber-framework": "^6.1.3"
   }
 }

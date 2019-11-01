@@ -11,13 +11,10 @@ describe('Chain locators demo', () => {
     let calc = new Calculator();
     await browser.get('http://juliemr.github.io/protractor-demo/');
 
-
-
     await calc.firstEditBox.sendKeys('5');
     await calc.minus.click();
     await calc.secondEditBox.sendKeys('10');
     await calc.goBtn.click();
-
 
     calc.getResult.getText().then(function (text) {
       console.log(text);
