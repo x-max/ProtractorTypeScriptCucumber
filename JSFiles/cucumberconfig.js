@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+const CucumberReportExtension_1 = require("./reporting/CucumberReportExtension");
 exports.config = {
     directConnect: true,
     framework: 'custom',
@@ -11,9 +12,15 @@ exports.config = {
     },
     specs: ['../features/demo.feature'],
     cucumberOpts: {
-        // require step definitions
+        compiler: "ts:ts-node/register",
+        strict: "true",
+        //tags: "@CalculatorTesting",
+        format: 'json:./reports/json/cucumber_report.json',
         require: [
-            './stepDefinitions/*.js' // accepts a glob
-        ]
+            './stepDefinitions/*.js',
+        ],
+        onComplete: () => {
+            CucumberReportExtension_1.CucumberReportExtension.GenerateCucumberReport();
+        },
     }
 };
